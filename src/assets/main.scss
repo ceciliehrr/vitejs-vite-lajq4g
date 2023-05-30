@@ -1,0 +1,50 @@
+@use 'sass:map';
+
+@use '@oslokommune/punkt-css/dist/scss/abstracts/variables' with
+  ($font-path: '@oslokommune/punkt-assets/dist');
+
+@use '@oslokommune/punkt-css/dist/scss/abstracts/mixins' as *;
+
+@use '@oslokommune/punkt-css/dist/scss/pkt' as *;
+
+/*Bruk mixin get-text*/
+@use '@oslokommune/punkt-css/dist/scss/abstracts/mixins/typography' as *;
+h2 {
+  @include get-text('pkt-txt-36');
+}
+
+/*Hent spacing variabel med map.get*/
+.pkt-main {
+  padding: map.get(variables.$spacing, 'size-24');
+  margin-top: 1.125rem;
+  margin-bottom: 4rem;
+
+  @include bp('tablet-up') {
+    margin-top: 3.125rem;
+    margin-bottom: 6.5rem;
+  }
+}
+
+p {
+  margin-bottom: 1rem;
+  max-width: 850px;
+}
+
+.pkt-table {
+  max-width: 850px;
+}
+
+.pkt-btn {
+  margin: 6px 0;
+}
+// Legg til egne klasser for andre farger
+
+.pkt-btn--primary-confirm {
+  background-color: var(--color-green);
+  color: var(--color-blue-dark);
+  border-color: var(--color-green);
+}
+
+.pkt-btn--yellow-stroke {
+  border-color: var(--color-yellow);
+}
